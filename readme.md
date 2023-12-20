@@ -45,22 +45,22 @@ kernel=C:\\temp\\wsl-kernel\\vmlinux
 
 ## Step 3
 - Install the prerequisites for SDKManager:
-  ```
-  sudo apt update
-  sudo apt install iputils-ping iproute2 netcat iptables dnsutils network-manager usbutils net-tools python3-yaml dosfstools libgetopt-complete-perl openssh-client binutils xxd cpio udev dmidecode -y
-  sudo apt install linux-tools-virtual hwdata -y
-  sudo apt install libgbm1 libgtk-3-0 libatk-bridge2.0-0 libgconf-2-4 -y
-  ```
+```
+sudo apt update
+sudo apt install iputils-ping iproute2 netcat iptables dnsutils network-manager usbutils net-tools python3-yaml dosfstools libgetopt-complete-perl openssh-client binutils xxd cpio udev dmidecode -y
+sudo apt install linux-tools-virtual hwdata -y
+sudo apt install libgbm1 libgtk-3-0 libatk-bridge2.0-0 libgconf-2-4 -y
+```
 - Download the SDKManager `.deb` file from Nvidia's website, [here](https://developer.download.nvidia.com/sdkmanager/redirects/sdkmanager-deb.html)
 - Install it
   `sudo apt install ./sdkmanager_[version]-[build#]_amd64.deb`
 - Install `qemu-user-static` and ensure the required binary formats are imported:
-  ```
-  sudo apt-get install qemu-user-static
-  sudo update-binfmts --import qemu-aarch64
-  sudo update-binfmts --import qemu-arm
-  sudo update-binfmts --import qemu-armeb
-  ```
+```
+sudo apt-get install qemu-user-static
+sudo update-binfmts --import qemu-aarch64
+sudo update-binfmts --import qemu-arm
+sudo update-binfmts --import qemu-armeb
+```
 - Enable systemd by appending into your `wsl.conf`:
 ```
 [boot]
