@@ -22,11 +22,17 @@ git clone https://github.com/microsoft/WSL2-Linux-Kernel
 - Make sure that you clone this onto a filesystem that supports files of the same name but with different capitalizations coexisting. Basically, just clone this on your home directory in Ubuntu.
 - Next, download copy this custom config and extract it ([source](https://forums.developer.nvidia.com/t/flash-jetson-orin-nano-wsl2/263654/9)). It can be downloaded via this [link](https://forums.developer.nvidia.com/uploads/short-url/NjlHVIo6tP4slqAJQND462YIk7.gz).
 - Copy the `config` file found in the extracted folder into the root of the WSL kernel repository that was just cloned.
-  `cp ./config ~/WSL2-Linux-Kernel`
+```
+cp ./config ~/WSL2-Linux-Kernel
+```
 - Start building the kernel, this will take a while.
-  `make KCONFIG_CONFIG=config`
+```
+make KCONFIG_CONFIG=config
+```
   or, for multithreaded building (with 8 threads as an example):
-  `make KCONFIG_CONFIG=config -j 8`
+```
+make KCONFIG_CONFIG=config -j 8
+```
 - You may have to run the single threaded build command once the multithreaded command finishes to produce the resulting `vmlinux` binary.
 - Now, copy `vmlinux` to somewhere outside of your WSL drive. I've copied mine to `C:\temp\vmlinux\wsl-kernel`:
 ```
