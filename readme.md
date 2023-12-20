@@ -107,7 +107,7 @@ sdkmanager
 ```
 usbipd.exe bind -b <BUSID> --force
 ```
-      until it succeeds, and then run
+    until it succeeds, and then run
 ```
 usbipd.exe attach --wsl -b <BUSID> --auto-attach
 ```
