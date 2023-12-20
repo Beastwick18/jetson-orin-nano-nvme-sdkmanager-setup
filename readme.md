@@ -53,8 +53,7 @@ sudo apt install iputils-ping iproute2 netcat iptables dnsutils network-manager 
 sudo apt install linux-tools-virtual hwdata -y
 sudo apt install libgbm1 libgtk-3-0 libatk-bridge2.0-0 libgconf-2-4 -y
 ```
-- Download the SDKManager `.deb` file from Nvidia's website, [here](https://developer.download.nvidia.com/sdkmanager/redirects/sdkmanager-deb.html)
-- Install it
+- Download the SDKManager `.deb` file from Nvidia's website, [here](https://developer.download.nvidia.com/sdkmanager/redirects/sdkmanager-deb.html) and install it
 ```
 sudo apt install ./sdkmanager_[version]-[build#]_amd64.deb
 ```
