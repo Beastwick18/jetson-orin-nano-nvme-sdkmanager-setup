@@ -16,7 +16,9 @@ sudo apt-get update
 sudo apt install build-essential flex bison dwarves libssl-dev libelf-dev bc
 ```
 - Next, clone the WSL2 kernel found on GitHub ([source](https://github.com/microsoft/WSL2-Linux-Kernel)):
-  `git clone https://github.com/microsoft/WSL2-Linux-Kernel`
+```
+git clone https://github.com/microsoft/WSL2-Linux-Kernel
+```
 - Make sure that you clone this onto a filesystem that supports files of the same name but with different capitalizations coexisting. Basically, just clone this on your home directory in Ubuntu.
 - Next, download copy this custom config and extract it ([source](https://forums.developer.nvidia.com/t/flash-jetson-orin-nano-wsl2/263654/9)). It can be downloaded via this [link](https://forums.developer.nvidia.com/uploads/short-url/NjlHVIo6tP4slqAJQND462YIk7.gz).
 - Copy the `config` file found in the extracted folder into the root of the WSL kernel repository that was just cloned.
@@ -53,7 +55,9 @@ sudo apt install libgbm1 libgtk-3-0 libatk-bridge2.0-0 libgconf-2-4 -y
 ```
 - Download the SDKManager `.deb` file from Nvidia's website, [here](https://developer.download.nvidia.com/sdkmanager/redirects/sdkmanager-deb.html)
 - Install it
-  `sudo apt install ./sdkmanager_[version]-[build#]_amd64.deb`
+```
+sudo apt install ./sdkmanager_[version]-[build#]_amd64.deb
+```
 - Install `qemu-user-static` and ensure the required binary formats are imported:
 ```
 sudo apt-get install qemu-user-static
@@ -76,9 +80,13 @@ wsl --shutdown
 - Using powershell, run `usbipd.exe list` and confirm that a device with a `VID` starting with `0955` is present.
   - Take note of the `BUSID`.
 - Share the Jetsons USB with WSL using the command (replace BUSID with your BUSID) (run as administrator):
-  `usbipd.exe bind -b <BUSID> --force`
+```
+usbipd.exe bind -b <BUSID> --force
+```
 - To make sure the USB stays connected during the flashing process, run this command to auto-reconnect it when it disconnects (once again, replace BUSID):
-  `usbipd.exe attach --wsl -b <BUSID> --auto-attach`
+```
+usbipd.exe attach --wsl -b <BUSID> --auto-attach
+```
 - In WSL, open sdkmanager via the commandline:
 ```
 sdkmanager
@@ -96,9 +104,13 @@ sdkmanager
   - Quickly close the powershell instance running `usbipd.exe`. 
   - Reopen it again, still in administrator mode.
   - Try to run 
-    `usbipd.exe bind -b <BUSID> --force`
-    until it succeeds, and then run
-    `usbipd.exe attach --wsl -b <BUSID> --auto-attach`
+```
+usbipd.exe bind -b <BUSID> --force
+```
+      until it succeeds, and then run
+```
+usbipd.exe attach --wsl -b <BUSID> --auto-attach
+```
   - This must be done before the flashing times out.
 - Once flashing has finished, the jetson will reboot. Make sure you have a monitor + peripherals to set it up.
 - Another popup will show up on the SDKManager to install additional components. On the Jetson, find the ip of it using `ifconfig`. Add this information into the popup along with the username and password.
