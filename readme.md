@@ -87,7 +87,7 @@ usbipd.exe bind -b <BUSID> --force
 ```
 usbipd.exe attach --wsl -b <BUSID> --auto-attach
 ```
-- In WSL, open sdkmanager via the commandline:
+- In WSL, open sdkmanager via the commandline (X11 must work on your installation of WSL):
 ```
 sdkmanager
 ```
